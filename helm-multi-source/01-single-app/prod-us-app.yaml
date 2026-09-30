@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: staging-us-app
+  name: prod-us-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io    
@@ -9,7 +9,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: staging-us
+    namespace: prod-us
   sources:
     - repoURL: https://github.com/tuomastielinen/gitops-cert-level-3-examples.git
       path: helm-multi-source/my-chart
